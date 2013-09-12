@@ -21,7 +21,11 @@ if __name__ == '__main__':
     #else:
     #   host = '0.0.0.0'
     host = '0.0.0.0'
-    port = 8000
+    if len(sys.argv) > 2:
+        port = int(sys.argv[2])
+    else:
+        port = 8000
+
     httpd = make_server(host, port, application)
     print "Listening at %s:%s...." % (host,port)
     httpd.serve_forever()
